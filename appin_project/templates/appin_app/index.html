@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+  <link rel="stylesheet" href="{% static "css/mystyle.css"%}"/>
+    <meta charset="utf-8">
+    <title>first_app</title>
+  </head>
+  <body>
+    <h1>List of Webpages Accessed</h1>
+
+    <div class="djangtwo">
+      {% if access_records %}
+
+      <table>
+        <thead>
+          <th>Site Name</th>
+          <th>Date Accessed</th>
+        </thead>
+
+        {% for acc in access_records %}
+        <tr>
+          <td>{{ acc.name }}</td>
+          <td>{{ acc.date }}</td>
+        </tr>
+        {% endfor  %}
+      </table>
+
+      {% else %}
+      <p>NO ACCESS RECORDS FOUND!</p>
+      {% endif %}
+    </div>
+
+  </body>
+</html>
